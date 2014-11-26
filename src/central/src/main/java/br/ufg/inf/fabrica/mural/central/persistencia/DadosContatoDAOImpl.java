@@ -7,7 +7,7 @@ public class DadosContatoDAOImpl implements DadosContatoDAO {
 	@Override
 	public boolean incluir(DadosContato dadosContato) {
 		// TODO Auto-generated method stub
-		return true;
+		return true; 
 	}
 
 	@Override
