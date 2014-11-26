@@ -12,6 +12,7 @@ public class SolicitacaoManutencaoUnidadeTest {
 		Usuario usuario = EasyMock.createMock(Usuario.class);
 		EasyMock.expect(usuario.getLogin()).andReturn("teste");
 		EasyMock.expect(usuario.getSenha()).andReturn("teste");
+		
 	}
 
 }
