@@ -1,24 +1,23 @@
-package br.ufg.inf.fabrica.mural.central.dominio;
+package br.ufg.inf.fabrica.mural.central.persitencia;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SolicitacaoManutencaoUnidadeTest {
-	static final String OPERACAO_INCLUIR = "incluir";
-	static final String OPERACAO_ALTERAR = "alterar";
-	static final String OPERACAO_REMOVER = "remover";
-	
-	static final String OPERACAO_REALIZADA_COM_SUCESSO = "2000";
-	static final String OPERACAO_FALHA = "2001";
-	
-	Unidade unidade;
+import br.ufg.inf.fabrica.mural.central.dominio.DadosContato;
+import br.ufg.inf.fabrica.mural.central.dominio.Posicao;
+import br.ufg.inf.fabrica.mural.central.dominio.Unidade;
+import br.ufg.inf.fabrica.mural.central.persistencia.UnidadeDAO;
+import br.ufg.inf.fabrica.mural.central.persistencia.UnidadeDAOImpl;
+
+public class UnidadeDAOImplTest {
+
+	Unidade unidade = null;
 	Posicao posicao = null;
 	DadosContato dadosContato = null;
-	String operacao = "";
-	
+
 	@Before
 	public void inicializa() {
 		//mockando dadosContato
@@ -53,31 +52,41 @@ public class SolicitacaoManutencaoUnidadeTest {
 		EasyMock.expect(unidade.getPosicao()).andReturn(posicaoUnidade).anyTimes();
 
 		EasyMock.replay(unidade);
+
 	}
 
 	@Test
-	public void testIncluir() {
-		operacao = OPERACAO_INCLUIR;
-		test();
-	}
+	public void testIncluir(){
+		UnidadeDAO unidadeDAO = new UnidadeDAOImpl();
+		assertEquals(true, unidadeDAO.incluir(unidade));
 
-	@Test
-	public void testAlterar() {
-		operacao = OPERACAO_ALTERAR;
-		test();
-	}
-	
-	@Test
-	public void testRemover() {
-		operacao = OPERACAO_REMOVER;
-		test();
-	}
-	
-	public void test() {
-		SolicitacaoManutencaoUnidade solicitacaoManutencao = new SolicitacaoManutencaoUnidade(unidade, operacao);
-		assertEquals(OPERACAO_REALIZADA_COM_SUCESSO, solicitacaoManutencao.realizarOperacao());
-		
 		EasyMock.verify(unidade);
 	}
 
+	@Test
+	public void testAlterar(){
+		UnidadeDAO unidadeDAO = new UnidadeDAOImpl();
+		assertEquals(true, unidadeDAO.alterar(unidade));
+
+		EasyMock.verify(unidade);
+	}
+
+	@Test
+	public void testRemover(){
+		UnidadeDAO unidadeDAO = new UnidadeDAOImpl();
+		assertEquals(true, unidadeDAO.remover(unidade));
+
+		EasyMock.verify(unidade);
+	}
+
+	@Test
+	public void testBuscar(){
+		UnidadeDAO unidadeDAO = new UnidadeDAOImpl();
+		assertEquals(unidade, unidadeDAO.buscar(unidade));
+
+		EasyMock.verify(unidade);
+	}
 }
+
+
+
