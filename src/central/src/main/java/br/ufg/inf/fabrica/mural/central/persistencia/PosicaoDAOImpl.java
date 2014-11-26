@@ -1,31 +1,31 @@
 package br.ufg.inf.fabrica.mural.central.persistencia;
 
-import br.ufg.inf.fabrica.mural.central.dominio.Unidade;
+import br.ufg.inf.fabrica.mural.central.dominio.Posicao;
 
-public class UnidadeDAOImpl implements UnidadeDAO {
+public class PosicaoDAOImpl implements PosicaoDAO {
 
 	@Override
-	public boolean incluir(Unidade unidade) {
+	public boolean incluir(Posicao posicao) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
-	public boolean alterar(Unidade unidade) {
+	public boolean alterar(Posicao posicao) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
-	public boolean remover(Unidade unidade) {
+	public boolean remover(Posicao posicao) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
-	public Unidade buscar(Unidade unidade) {
+	public Posicao buscar(Posicao posicao) {
 		// TODO Auto-generated method stub
-		return unidade;
+		return posicao;
 	}
 	
 }
