@@ -1,7 +1,6 @@
 package br.ufg.inf.fabrica.mural.central.dominio;
 
-import br.ufg.inf.fabrica.mural.central.persistencia.UnidadeDAO;
-import br.ufg.inf.fabrica.mural.central.persistencia.UnidadeDAOImpl;
+import br.ufg.inf.fabrica.mural.central.persistencia.*;
 
 public class SolicitacaoManutencaoUnidade {
 	
@@ -27,25 +26,33 @@ public class SolicitacaoManutencaoUnidade {
 	
 	public String realizarOperacao() {
 		UnidadeDAO unidadeDAO = new UnidadeDAOImpl();
+		DadosContatoDAO dadosContatoDAO = new DadosContatoDAOImpl();
+		PosicaoDAO posicaoDAO = new PosicaoDAOImpl();
 		String codigoRetorno = OPERACAO_FALHA;
 		
 		switch (operacao) {
 			case OPERACAO_INCLUIR:
-				if (unidadeDAO.incluir(unidade)) {
+				if (unidadeDAO.incluir(unidade) 
+						&& dadosContatoDAO.incluir(unidade.getDadosContato())
+						&& posicaoDAO.incluir(unidade.getPosicao())) {
 					codigoRetorno = OPERACAO_REALIZADA_COM_SUCESSO;
 				}
 				
 				break;
 			case OPERACAO_ALTERAR:
 				unidade = unidadeDAO.buscar(unidade);
-				if (unidade != null && unidadeDAO.alterar(unidade)) {
+				if (unidade != null && unidadeDAO.alterar(unidade)
+						&& dadosContatoDAO.alterar(unidade.getDadosContato())
+						&& posicaoDAO.alterar(unidade.getPosicao())) {
 					codigoRetorno = OPERACAO_REALIZADA_COM_SUCESSO;
 				}
 				
 				break;
 			case OPERACAO_REMOVER:
 				unidade = unidadeDAO.buscar(unidade);
-				if (unidade != null && unidadeDAO.remover(unidade)) {
+				if (unidade != null && unidadeDAO.remover(unidade)
+						&& dadosContatoDAO.remover(unidade.getDadosContato())
+						&& posicaoDAO.remover(unidade.getPosicao())) {
 					codigoRetorno = OPERACAO_REALIZADA_COM_SUCESSO;
 				}
 				
