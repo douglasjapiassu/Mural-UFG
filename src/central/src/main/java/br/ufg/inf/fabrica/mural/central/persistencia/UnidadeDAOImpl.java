@@ -5,7 +5,7 @@ import br.ufg.inf.fabrica.mural.central.dominio.Unidade;
 public class UnidadeDAOImpl implements UnidadeDAO {
 
 	@Override
-	public boolean incluir(Unidade unidade) {
+	public boolean salvar(Unidade unidade) {
 		// TODO Auto-generated method stub
 		return true;
 	}

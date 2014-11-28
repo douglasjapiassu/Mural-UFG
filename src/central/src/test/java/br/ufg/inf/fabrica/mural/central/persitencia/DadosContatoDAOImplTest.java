@@ -31,7 +31,7 @@ public class DadosContatoDAOImplTest {
 	@Test
 	public void testIncluir(){
 		DadosContatoDAO dadosContatoDAO = new DadosContatoDAOImpl();
-		assertEquals(true, dadosContatoDAO.incluir(dadosContato));
+		assertEquals(true, dadosContatoDAO.salvar(dadosContato));
 
 		EasyMock.verify(dadosContato);
 

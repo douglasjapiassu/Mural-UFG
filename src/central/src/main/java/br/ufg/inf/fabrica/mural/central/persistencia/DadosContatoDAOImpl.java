@@ -5,7 +5,7 @@ import br.ufg.inf.fabrica.mural.central.dominio.DadosContato;
 public class DadosContatoDAOImpl implements DadosContatoDAO {
 
 	@Override
-	public boolean incluir(DadosContato dadosContato) {
+	public boolean salvar(DadosContato dadosContato) {
 		// TODO Auto-generated method stub
 		return true; 
 	}

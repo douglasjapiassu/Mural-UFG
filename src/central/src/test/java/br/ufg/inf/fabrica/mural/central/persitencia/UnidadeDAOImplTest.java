@@ -58,7 +58,7 @@ public class UnidadeDAOImplTest {
 	@Test
 	public void testIncluir(){
 		UnidadeDAO unidadeDAO = new UnidadeDAOImpl();
-		assertEquals(true, unidadeDAO.incluir(unidade));
+		assertEquals(true, unidadeDAO.salvar(unidade));
 
 		EasyMock.verify(unidade);
 	}

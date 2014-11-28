@@ -32,9 +32,9 @@ public class SolicitacaoManutencaoUnidade {
 		
 		switch (operacao) {
 			case OPERACAO_INCLUIR:
-				if (unidadeDAO.incluir(unidade) 
-						&& dadosContatoDAO.incluir(unidade.getDadosContato())
-						&& posicaoDAO.incluir(unidade.getPosicao())) {
+				if (unidadeDAO.salvar(unidade) 
+						&& dadosContatoDAO.salvar(unidade.getDadosContato())
+						&& posicaoDAO.salvar(unidade.getPosicao())) {
 					codigoRetorno = OPERACAO_REALIZADA_COM_SUCESSO;
 				}
 				

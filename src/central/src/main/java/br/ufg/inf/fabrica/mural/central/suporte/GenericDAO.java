@@ -4,7 +4,7 @@ package br.ufg.inf.fabrica.mural.central.suporte;
 
 public interface GenericDAO<T extends GenericEntity> {
 	
-	public boolean incluir(T entity);
+	public boolean salvar(T entity);
 	
 	public boolean alterar(T entity);
 	
